@@ -1,10 +1,10 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.7)
 SET(CMAKE_CXX_FLAGS_RELEASE "-Wall -O2 -std=c++11 -pthread")
 SET(CMAKE_CXX_FLAGS_DEBUG "-g -std=c++11 -pthread")
-SET(CMAKE_BUILD_TYPE Debug)
+SET(CMAKE_BUILD_TYPE Release)
 
 PROJECT(RobotUtil4RasPi CXX)
-SET(serial "0.1.2")
+SET(serial "0.2.0")
 SET(soserial "0")
 INCLUDE_DIRECTORIES("wiringPi")
 ADD_LIBRARY(RobotUtil STATIC src/ScrpMaster.cpp src/Ds3Read.cpp)
