@@ -1,4 +1,5 @@
 // ScrpMasterのサンプル 
+// コマンドライン引数を3つ受け取ってそれらをID, CMD, DATAとして通信を行う 
 #include <iostream>
 #include <RobotUtil.hpp>
 
