@@ -152,29 +152,29 @@ RobotUtil/fast:
 	$(MAKE) -f CMakeFiles/RobotUtil.dir/build.make CMakeFiles/RobotUtil.dir/build
 .PHONY : RobotUtil/fast
 
-ScrpMaster.o: ScrpMaster.cpp.o
-.PHONY : ScrpMaster.o
+src/ScrpMaster.o: src/ScrpMaster.cpp.o
+.PHONY : src/ScrpMaster.o
 
 # target to build an object file
-ScrpMaster.cpp.o:
-	$(MAKE) -f CMakeFiles/RobotUtil.dir/build.make CMakeFiles/RobotUtil.dir/ScrpMaster.cpp.o
-.PHONY : ScrpMaster.cpp.o
+src/ScrpMaster.cpp.o:
+	$(MAKE) -f CMakeFiles/RobotUtil.dir/build.make CMakeFiles/RobotUtil.dir/src/ScrpMaster.cpp.o
+.PHONY : src/ScrpMaster.cpp.o
 
-ScrpMaster.i: ScrpMaster.cpp.i
-.PHONY : ScrpMaster.i
+src/ScrpMaster.i: src/ScrpMaster.cpp.i
+.PHONY : src/ScrpMaster.i
 
 # target to preprocess a source file
-ScrpMaster.cpp.i:
-	$(MAKE) -f CMakeFiles/RobotUtil.dir/build.make CMakeFiles/RobotUtil.dir/ScrpMaster.cpp.i
-.PHONY : ScrpMaster.cpp.i
+src/ScrpMaster.cpp.i:
+	$(MAKE) -f CMakeFiles/RobotUtil.dir/build.make CMakeFiles/RobotUtil.dir/src/ScrpMaster.cpp.i
+.PHONY : src/ScrpMaster.cpp.i
 
-ScrpMaster.s: ScrpMaster.cpp.s
-.PHONY : ScrpMaster.s
+src/ScrpMaster.s: src/ScrpMaster.cpp.s
+.PHONY : src/ScrpMaster.s
 
 # target to generate assembly for a file
-ScrpMaster.cpp.s:
-	$(MAKE) -f CMakeFiles/RobotUtil.dir/build.make CMakeFiles/RobotUtil.dir/ScrpMaster.cpp.s
-.PHONY : ScrpMaster.cpp.s
+src/ScrpMaster.cpp.s:
+	$(MAKE) -f CMakeFiles/RobotUtil.dir/build.make CMakeFiles/RobotUtil.dir/src/ScrpMaster.cpp.s
+.PHONY : src/ScrpMaster.cpp.s
 
 # Help Target
 help:
@@ -189,9 +189,9 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... ScrpMaster.o"
-	@echo "... ScrpMaster.i"
-	@echo "... ScrpMaster.s"
+	@echo "... src/ScrpMaster.o"
+	@echo "... src/ScrpMaster.i"
+	@echo "... src/ScrpMaster.s"
 .PHONY : help
 
 
