@@ -152,6 +152,30 @@ RobotUtil/fast:
 	$(MAKE) -f CMakeFiles/RobotUtil.dir/build.make CMakeFiles/RobotUtil.dir/build
 .PHONY : RobotUtil/fast
 
+src/Ds3Read.o: src/Ds3Read.cpp.o
+.PHONY : src/Ds3Read.o
+
+# target to build an object file
+src/Ds3Read.cpp.o:
+	$(MAKE) -f CMakeFiles/RobotUtil.dir/build.make CMakeFiles/RobotUtil.dir/src/Ds3Read.cpp.o
+.PHONY : src/Ds3Read.cpp.o
+
+src/Ds3Read.i: src/Ds3Read.cpp.i
+.PHONY : src/Ds3Read.i
+
+# target to preprocess a source file
+src/Ds3Read.cpp.i:
+	$(MAKE) -f CMakeFiles/RobotUtil.dir/build.make CMakeFiles/RobotUtil.dir/src/Ds3Read.cpp.i
+.PHONY : src/Ds3Read.cpp.i
+
+src/Ds3Read.s: src/Ds3Read.cpp.s
+.PHONY : src/Ds3Read.s
+
+# target to generate assembly for a file
+src/Ds3Read.cpp.s:
+	$(MAKE) -f CMakeFiles/RobotUtil.dir/build.make CMakeFiles/RobotUtil.dir/src/Ds3Read.cpp.s
+.PHONY : src/Ds3Read.cpp.s
+
 src/ScrpMaster.o: src/ScrpMaster.cpp.o
 .PHONY : src/ScrpMaster.o
 
@@ -189,6 +213,9 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... src/Ds3Read.o"
+	@echo "... src/Ds3Read.i"
+	@echo "... src/Ds3Read.s"
 	@echo "... src/ScrpMaster.o"
 	@echo "... src/ScrpMaster.i"
 	@echo "... src/ScrpMaster.s"

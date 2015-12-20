@@ -1,6 +1,7 @@
 *.so*
 *.a
 *install*
+*.out
 
 CMakeCache.txt
 CMakeFiles/
