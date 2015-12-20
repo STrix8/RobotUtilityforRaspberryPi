@@ -1,0 +1,29 @@
+#include <iostream>
+#include <unistd.h>
+#include <RobotUtil.hpp>
+
+using namespace std;
+using namespace rbutil;
+
+int main(void) {
+	cout << "Start" << endl;
+	Ds3Read Controller;
+	Controller.update();
+	UPDATELOOP (Controller, !Controller.button(START)) {
+		for (int j = 0; j < NumButtons; ++j) {
+			if (Controller.button(ButtonsNum(j)))
+				cout << j << endl;
+		}
+		for (int j = 0; j < NumSticks; ++j) {
+			cout << Controller.stick(SticksNum(j)) << " ";
+		}
+		cout << " ";
+		for (int j = 0; j < NumAxis; ++j) {
+			cout << Controller.acceleration(AxisNum(j)) << " ";
+		}
+		cout << endl;
+		usleep(14000);
+	}
+	return 0;
+}
+
