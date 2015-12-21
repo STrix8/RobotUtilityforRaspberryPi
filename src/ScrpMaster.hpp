@@ -7,11 +7,9 @@
 #include <string>
 
 namespace rbutil {
-	extern int MaxMotorPower;
-
 	typedef struct {
 		unsigned char id;
-		unsigned char cmd; 
+		unsigned char cmd;
 		short argData;
 	} SendDataFormat;
 
