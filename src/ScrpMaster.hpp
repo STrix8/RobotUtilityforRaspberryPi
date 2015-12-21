@@ -4,7 +4,6 @@
 #include <thread>
 #include <queue>
 #include <mutex>
-#include <string>
 
 namespace rbutil {
 	typedef struct {
