@@ -12,6 +12,7 @@ namespace rbutil {
 		unsigned char cmd;
 		short argData;
 	} SendDataFormat;
+	extern bool wiringPiSetupGpioFlag;
 
 	class ScrpMaster {
 	public:
@@ -25,7 +26,6 @@ namespace rbutil {
 		virtual ~ScrpMaster();
 		bool sumCheckSuccess;
 		short recentReceivedData;
-		static bool wiringPiSetupGpioFlag;
 	private:
 		void init(int, int, const char*, int);
 		void asyncSending(void);

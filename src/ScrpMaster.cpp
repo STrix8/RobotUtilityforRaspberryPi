@@ -15,7 +15,7 @@ using namespace rbutil;
 
 const int SEND_DATA_NUM = 7;
 
-bool ScrpMaster::wiringPiSetupGpioFlag = false;
+bool rbutil::wiringPiSetupGpioFlag = false;
 
 ScrpMaster::ScrpMaster() {
 	init(4, 10, "/dev/ttyAMA0", 115200);
