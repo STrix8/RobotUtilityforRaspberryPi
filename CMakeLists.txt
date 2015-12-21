@@ -4,7 +4,7 @@ SET(CMAKE_CXX_FLAGS_DEBUG "-g -std=c++11 -pthread")
 SET(CMAKE_BUILD_TYPE Debug)
 
 PROJECT(RobotUtil4RasPi CXX)
-SET(serial "0.1.2")
+SET(serial "0.1.3")
 SET(soserial "0")
 INCLUDE_DIRECTORIES("wiringPi")
 ADD_LIBRARY(RobotUtil STATIC src/ScrpMaster.cpp src/Ds3Read.cpp)
