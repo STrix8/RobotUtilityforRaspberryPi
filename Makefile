@@ -176,6 +176,30 @@ src/Ds3Read.cpp.s:
 	$(MAKE) -f CMakeFiles/RobotUtil.dir/build.make CMakeFiles/RobotUtil.dir/src/Ds3Read.cpp.s
 .PHONY : src/Ds3Read.cpp.s
 
+src/Motor.o: src/Motor.cpp.o
+.PHONY : src/Motor.o
+
+# target to build an object file
+src/Motor.cpp.o:
+	$(MAKE) -f CMakeFiles/RobotUtil.dir/build.make CMakeFiles/RobotUtil.dir/src/Motor.cpp.o
+.PHONY : src/Motor.cpp.o
+
+src/Motor.i: src/Motor.cpp.i
+.PHONY : src/Motor.i
+
+# target to preprocess a source file
+src/Motor.cpp.i:
+	$(MAKE) -f CMakeFiles/RobotUtil.dir/build.make CMakeFiles/RobotUtil.dir/src/Motor.cpp.i
+.PHONY : src/Motor.cpp.i
+
+src/Motor.s: src/Motor.cpp.s
+.PHONY : src/Motor.s
+
+# target to generate assembly for a file
+src/Motor.cpp.s:
+	$(MAKE) -f CMakeFiles/RobotUtil.dir/build.make CMakeFiles/RobotUtil.dir/src/Motor.cpp.s
+.PHONY : src/Motor.cpp.s
+
 src/ScrpMaster.o: src/ScrpMaster.cpp.o
 .PHONY : src/ScrpMaster.o
 
@@ -216,6 +240,9 @@ help:
 	@echo "... src/Ds3Read.o"
 	@echo "... src/Ds3Read.i"
 	@echo "... src/Ds3Read.s"
+	@echo "... src/Motor.o"
+	@echo "... src/Motor.i"
+	@echo "... src/Motor.s"
 	@echo "... src/ScrpMaster.o"
 	@echo "... src/ScrpMaster.i"
 	@echo "... src/ScrpMaster.s"

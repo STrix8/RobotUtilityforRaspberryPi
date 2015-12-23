@@ -3,6 +3,7 @@
 #include <cstring>
 #include <string>
 #include <fstream>
+#include <unistd.h>
 
 using namespace std;
 using namespace rbutil;
