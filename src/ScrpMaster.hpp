@@ -11,7 +11,6 @@ namespace rbutil {
 		unsigned char cmd;
 		short argData;
 	} SendDataFormat;
-	extern bool wiringPiSetupGpioFlag;
 
 	class ScrpMaster {
 	public:
