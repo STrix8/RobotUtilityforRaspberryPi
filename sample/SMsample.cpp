@@ -7,7 +7,7 @@ using namespace std;
 using namespace rbutil;
 
 int main(int argc, char *argv[]) {
-	ScrpMaster sm;	// インスタンスの生成 
+	ScrpMaster sm(4, "/dev/ttyUSB0");	// インスタンスの生成 
 	sm.setTimeOut(1000);	// タイムアウトの設定 
 	try {		// 初期化の際, 例外が出る可能性があるのでtryで囲む 
 		sm.init();		// 初期化 

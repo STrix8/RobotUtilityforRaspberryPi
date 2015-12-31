@@ -14,9 +14,8 @@ using namespace std;
 using namespace rbutil;
 
 const int SEND_DATA_NUM = 7;
-int rbutil::MaxMotorPower = 200;
 
-bool ScrpMaster::wiringPiSetupGpioFlag = false;
+bool rbutil::wiringPiSetupGpioFlag = false;
 
 ScrpMaster::ScrpMaster() {
 	init(4, 10, "/dev/ttyAMA0", 115200);
@@ -56,7 +55,7 @@ void ScrpMaster::setTimeOut(int timeout) {
 }
 
 short ScrpMaster::sending(unsigned char id, unsigned char cmd, short data) {
-	// 送信 
+	// 送信
 	unsigned short uData = (unsigned short)data;
 	unsigned char sendDataArray[SEND_DATA_NUM] = {0xFF, STX, id, cmd, (unsigned char)(uData & 0xFF), (unsigned char)(uData >> 8), (unsigned char)((id + cmd + (uData & 0xFF) + (uData >> 8)) & 0xFF)};
 	lock_guard<mutex> lock(mtx);
@@ -67,19 +66,19 @@ short ScrpMaster::sending(unsigned char id, unsigned char cmd, short data) {
 		delayMicroseconds(90);
 	}
 	digitalWrite(this->redePin, 0);
-	// 受信 
+	// 受信
 	bool stxFlag = false;
 	char receivedArray[5] = {};
 	int i = 0;
-	
+
 	auto startTime = chrono::system_clock::now();
 	sumCheckSuccess = false;
 	while (chrono::time_point<chrono::system_clock>(startTime + chrono::milliseconds(timeOut)) >= chrono::system_clock::now() and !sumCheckSuccess) {
-			
+
 		while (serialDataAvail(serialDev) > 0) {
 			char gotData = serialGetchar(serialDev);
 			if (gotData == STX and !stxFlag) {
-				stxFlag = true; 
+				stxFlag = true;
 				continue;
 			}
 			if (stxFlag) {
@@ -87,7 +86,7 @@ short ScrpMaster::sending(unsigned char id, unsigned char cmd, short data) {
 			}
 			if (i > 4) {
 				unsigned char sum = 0;
-				for (int j = 0; j < 4; ++j) 
+				for (int j = 0; j < 4; ++j)
 					sum += receivedArray[j];
 				if (sum == receivedArray[4]) {
 					sumCheckSuccess = true;
@@ -118,7 +117,7 @@ short ScrpMaster::send(unsigned char id , unsigned char cmd, short data, bool as
 		SendDataFormat sendData = {id, cmd, data};
 		sendDataQueue.push(sendData);
 		if (!threadLoopFlag) {
-			if (sendThread.joinable()) 
+			if (sendThread.joinable())
 				sendThread.join();
 			sendThread = thread([&]{ asyncSending(); });
 		}

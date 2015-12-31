@@ -4,14 +4,11 @@
 #include <thread>
 #include <queue>
 #include <mutex>
-#include <string>
 
 namespace rbutil {
-	extern int MaxMotorPower;
-
 	typedef struct {
 		unsigned char id;
-		unsigned char cmd; 
+		unsigned char cmd;
 		short argData;
 	} SendDataFormat;
 
@@ -27,7 +24,6 @@ namespace rbutil {
 		virtual ~ScrpMaster();
 		bool sumCheckSuccess;
 		short recentReceivedData;
-		static bool wiringPiSetupGpioFlag;
 	private:
 		void init(int, int, const char*, int);
 		void asyncSending(void);
