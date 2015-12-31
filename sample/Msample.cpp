@@ -20,9 +20,8 @@ int main(int argc, char *argv[]) {
 	unsigned char id, mNum;
 	double magni;
 	if (argc < 4) {
-		id = 1;
-		mNum = 2;
-		magni = 1.0;
+		cout << "Usage: " << argv[0] << " <id> <mNum> <magni>" << endl;
+		return -1;
 	} else {
 		char* ends;
 		id = (unsigned char)stoi(argv[1]);
