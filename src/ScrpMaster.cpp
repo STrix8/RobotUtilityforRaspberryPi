@@ -1,3 +1,4 @@
+#include "RobotUtil.hpp"
 #include "ScrpMaster.hpp"
 
 #include <wiringPi.h>
