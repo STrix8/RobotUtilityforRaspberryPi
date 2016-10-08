@@ -26,7 +26,9 @@ void Ds3Read::init(const char* fileName, bool precision, int timeout) {
 	for (int i = 0; i < NumButtons; ++i) {
 		readButtonData[i] = false;
 		buttonData[i] = false;
-	} 
+	}
+	readHexButtonData = 0x0000;
+	hexButtonData = 0x0000;
 	for (int i = 0; i < NumSticks; ++i) {
 		readStickData[i] = false;
 		stickData[i] = false;
@@ -76,10 +78,13 @@ void Ds3Read::read() {
 	if (data[6] == 0x01) {
 		if (data[7] >= 0 && data[7] <= NumButtons) {
 			int index = data[7];
+			unsigned short mask = (unsigned short)pow(2.0, (double)index);
 			if (data[4] == 0x00) {
 				readButtonData[index] = false;
+				readHexButtonData |= mask;
 			} else if (data[4] == 0x01) {
 				readButtonData[index] = true;
+				readHexButtonData &= ~mask;
 			}
 		}
 	} else if (data[6] == 0x02) {
@@ -97,14 +102,14 @@ void Ds3Read::read() {
 			if (precisionFlag) {
 				readStickData[index] *= 0x100;
 				readStickData[index] += data[4];
-				if (readStickData[index] >= 32768) 
+				if (readStickData[index] >= 32768)
 					readStickData[index] -= 65536;
 				/*
 				if (data[7] != index)
 					readStickData[index] += 32767;
 				*/
 			} else {
-				if (readStickData[index] >= 128) 
+				if (readStickData[index] >= 128)
 					readStickData[index] -= 256;
 				/*
 				if (data[7] != index)
@@ -116,7 +121,7 @@ void Ds3Read::read() {
 			int index = data[7] - 0x04;
 			if (precisionFlag)
 				readAxisData[index] = data[4] + data[5] * 0x100;
-				if (readAxisData[index] >= 32768) 
+				if (readAxisData[index] >= 32768)
 					readAxisData[index] -= 65536;
 			else
 				readAxisData[index] = data[5];
@@ -137,6 +142,7 @@ void Ds3Read::update() {
 	memcpy(buttonData, readButtonData, sizeof(buttonData));
 	memcpy(stickData, readStickData, sizeof(stickData));
 	memcpy(axisData, readAxisData, sizeof(axisData));
+	hexButtonData = readHexButtonData;
 }
 
 void Ds3Read::yReverseSet(bool setVar) {
@@ -153,6 +159,10 @@ bool Ds3Read::button(ButtonsNum Button, bool onlyFlag) {
 		}
 	}
 	return buttonData[Button];
+}
+
+unsigned short Ds3Read::hexButton() {
+	return hexButtonData;
 }
 
 int Ds3Read::stick(SticksNum Stick) {

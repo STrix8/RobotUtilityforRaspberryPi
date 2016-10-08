@@ -7,7 +7,7 @@ using namespace std;
 using namespace rbutil;
 
 int main(int argc, char *argv[]) {
-	ScrpMaster sm(4, "/dev/ttyUSB0");	// インスタンスの生成 
+	ScrpMaster sm;	// インスタンスの生成 
 	sm.setTimeOut(1000);	// タイムアウトの設定 
 	try {		// 初期化の際, 例外が出る可能性があるのでtryで囲む 
 		sm.init();		// 初期化 
@@ -18,10 +18,9 @@ int main(int argc, char *argv[]) {
 	}
 	unsigned char id, cmd;
 	unsigned short data;
-	if (argc < 4) {		// コマンドライン引数が足りなければID:1 CMD:2 DATA:255で送信する 
-		id = 1;
-		cmd = 2;
-		data = 255;
+	if (argc < 4) {		// コマンドライン引数が足りなければUsageを表示 
+		cout << "Usage: " << argv[0] << " <id> <cmd> <data>" << endl;
+		return -1;
 	} else {
 		id = (unsigned char)stoi(argv[1]);		// コマンドライン引数からID, CMD, DATAを決めて送信
 		cmd = (unsigned char)stoi(argv[2]);
